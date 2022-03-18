@@ -32,6 +32,5 @@ app.get('/post/:id', postController.getPost);
 app.put('/post/:id', postController.editPost);
 app.delete('/posts/:id', postController.deletePost);
 
-const port = process.env.PORT || 3000;
 
-app.listen(port, () => console.log(`Sunucu port ${port}'de baslatildi`));
+app.listen(process.env.PORT || 3000);
