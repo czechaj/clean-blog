@@ -47,8 +47,18 @@
 
       <hr>
 
-      <!-- Footer -->
+      <div class="d-flex justify-content-center btn-group text-center">
 
+        <a href="/posts/edit/<%= post.id %> "><button
+            class="btn btn-primary mr-5 w-100"><span>Edit</span></button></a>
+
+        <a href="/posts/<%= post._id %>?_method=DELETE"><button class="btn btn-danger w-100"
+            onclick="return confirm(' This action is irreversible, are you sure?')"><span>Delete
+              Post</span></button></a>
+
+      </div>
+
+      <!-- Footer -->
       <%- include('partials/_footer') -%>
 
         <!-- Bootstrap core JavaScript -->
