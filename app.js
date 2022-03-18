@@ -8,7 +8,7 @@ const pageController = require('./controllers/page_controllers');
 const postController = require('./controllers/post_controllers');
 
 const app = express();
-mongoose.connect('mongodb://localhost/cleanblog-test-db');
+mongoose.connect("mongodb+srv://czechaj:CNRHZWpkEGCLxCL2@cluster0.hiuog.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -32,6 +32,6 @@ app.get('/post/:id', postController.getPost);
 app.put('/post/:id', postController.editPost);
 app.delete('/posts/:id', postController.deletePost);
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => console.log(`Sunucu port ${port}'de baslatildi`));
