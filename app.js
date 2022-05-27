@@ -7,8 +7,11 @@ const ejs = require('ejs');
 const pageController = require('./controllers/page_controllers');
 const postController = require('./controllers/post_controllers');
 
+require('dotenv').config();
 const app = express();
-mongoose.connect("mongodb+srv://czechaj:CNRHZWpkEGCLxCL2@cluster0.hiuog.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
+mongoose.connect(
+  `mongodb+srv://czechaj:${process.env.DB_KEY}@cluster0.hiuog.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
+);
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -31,6 +34,5 @@ app.post('/createPost', postController.createPost);
 app.get('/post/:id', postController.getPost);
 app.put('/post/:id', postController.editPost);
 app.delete('/posts/:id', postController.deletePost);
-
 
 app.listen(process.env.PORT || 3000);
